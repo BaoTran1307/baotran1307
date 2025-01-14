@@ -1,0 +1,135 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Classified</title>
+    <style>
+        body {
+            background-color: #ccffff;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        table {
+            margin-top: 20px;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Classified Search Form</h1>
+    <hr />
+    <form id="myForm">
+        <table>
+            <tr>
+                <td colspan="3">
+                    <h3>1&#10089; Search for a classified in the following section:</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" id="employment" name="job" value="Employment">
+                    <label for="employment">Employment</label><br>
+                    <input type="radio" id="for_sale" name="job" value="For Sale">
+                    <label for="for_sale">For Sale</label><br>
+                    <input type="radio" id="housing" name="job" value="Housing">
+                    <label for="housing">Housing</label><br>
+                </td>
+                <td>
+                    <input type="radio" id="personal" name="job" value="Personal">
+                    <label for="personal">Personal</label><br>
+                    <input type="radio" id="miscellaneous" name="job" value="Miscellaneous">
+                    <label for="miscellaneous">Miscellaneous</label><br>
+                    <input type="radio" id="all_of_the_above" name="job" value="All of the above">
+                    <label for="all_of_the_above">All of the above</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <h3>2&#10089; Search the following publications:</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="midwest_times" name="publications" value="Midwest Times">
+                    <label for="midwest_times">Midwest Times</label><br>
+                    <input type="checkbox" id="great_lakes_classifieds" name="publications"
+                        value="Great Lakes Classifieds">
+                    <label for="great_lakes_classifieds">Great Lakes Classifieds</label><br>
+                </td>
+                <td>
+                    <input type="checkbox" id="modern_news" name="publications" value="Modern News">
+                    <label for="modern_news">Modern News</label><br>
+                    <input type="checkbox" id="middleton_daily" name="publications" value="Middleton Daily">
+                    <label for="middleton_daily">Middleton Daily</label><br>
+                </td>
+                <td>
+                    <input type="checkbox" id="employment_today" name="publications" value="Employment Today">
+                    <label for="employment_today">Employment Today</label><br>
+                    <input type="checkbox" id="cashtown_daily_news" name="publications" value="Cashtown Daily News">
+                    <label for="cashtown_daily_news">Cashtown Daily News</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <h3>3&#10089; From <input type="date" id="fromDate" name="fromDate" required> to <input type="date" id="toDate" name="toDate" required></h3>
+                </td>
+            </tr>
+        
+            <tr>
+                <td colspan="3">
+                    <h3>4&#10089; Enter a few keywords to describe the classified.</h3>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="text" id="keywords" name="keywords" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <h3>5&#10089; Click one of the options below:</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#">
+                        <img src="Search.gif" alt="Search">
+                    </a>
+                </td>
+                <td>
+                    <a href="https://support.google.com/?hl=en">
+                        <img src="Help.gif" alt="Help">
+                    </a>
+                </td>
+                <td>
+                    <input type="image" src="Cancel.gif" alt="Cancel" onclick="document.querySelector('form').reset();">
+                </td>
+            </tr>
+        </table>
+    </form>   
+</body>
+</html>

@@ -1,0 +1,163 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Expense Report</title>
+    <style>
+        body {
+            background-color: #ccffff;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 3px 7px;
+            text-align: left;
+        }
+
+        .image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            background-color: brown;
+            height: 1px;
+            border: none;
+        }
+
+        textarea {
+            resize: none;
+            width: 100%;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="image">
+            <img src="DeLong.jpg" alt="Company Logo">
+        </div>
+        <h1>Travel Expense Report</h1>
+        <hr>
+    
+        <div>
+            <span>1)</span>
+            <label for="fname">First Name:</label> 
+            <input type="text" id="fname" name="First Name" required>
+            <label for="lname">Last Name:</label> 
+            <input type="text" id="lname" name="Last Name" required>
+        </div>
+        
+        <div>
+            <span>2)</span>
+            <label for="nber">Social Security Number:</label> 
+            <input type="text" id="nber" name="Social Security Number" required>
+        </div>
+        
+        <div>
+            <span>3)</span>
+            <label for="department">Department:</label> 
+            <select name="department" id="department" required>
+                <option value="accounting">Accounting</option>
+                <option value="marketing">Marketing</option>
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+            </select>
+        </div>
+    
+        <div>
+            <span>4)</span>
+            <label for="purpose">Describe the purpose of your trip</label><br>
+            <textarea id="comment" name="purpose" cols="70" rows="4"></textarea>
+        </div>
+    
+        <div>
+            <span>5)</span>
+            <label for="expense">Itemize your travel expenses</label><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="date" name="" required></td>
+                        <td><input type="text" name="" required></td>
+                        <td>
+                            <select name="" required>
+                                <option value="Meal">Meal</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="" min="0" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" name=""></td>
+                        <td><input type="text" name=""></td>
+                        <td>
+                            <select name="">
+                                <option value="Meal">Meal</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" name=""></td>
+                        <td><input type="text" name=""></td>
+                        <td>
+                            <select name="">
+                                <option value="Meal">Meal</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" name=""></td>
+                        <td><input type="text" name=""></td>
+                        <td>
+                            <select name="">
+                                <option value="Meal">Meal</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="" min="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div>
+            <span>6)</span>
+            <span>Have you submitted your receipts?</span>
+            <input type="radio" id="yes" name="submitted" value="Yes">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="submitted" value="No">
+            <label for="no">No</label>
+        </div>
+    
+        <div>
+            <button type="button" onclick="alert('Submit travel expenses')">Submit travel expenses</button>
+            <button type="button" onclick="document.querySelector('form').reset();">Reset</button>
+        </div>
+    
+        <div>
+            Questions? Contact Debbie Larson in Accounting (ext: 2150)
+        </div>
+    </form>
+</body>
+</html>
