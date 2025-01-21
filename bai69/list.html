@@ -1,0 +1,105 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Danh sách Employee</title>
+    <script>
+        function loadEmployees() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "employees.xml", true);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var xmlDoc = xhr.responseXML;
+                    var employees = xmlDoc.getElementsByTagName("employee");
+                    var titleSet = new Set();
+
+                    // Tạo danh sách title không trùng
+                    for (var i = 0; i < employees.length; i++) {
+                        var title = employees[i].getAttribute("title");
+                        titleSet.add(title);
+                    }
+
+                    var selectBox = document.getElementById("titleSelect");
+                    selectBox.innerHTML = ""; // Xóa dữ liệu cũ nếu có
+
+                    // Thêm option vào dropdown
+                    titleSet.forEach(function(title) {
+                        var option = document.createElement("option");
+                        option.value = title;
+                        option.text = title;
+                        selectBox.appendChild(option);
+                    });
+
+                    // Gọi hiển thị danh sách khi chọn giá trị đầu tiên
+                    showEmployeesByTitle();
+                }
+            };
+        }
+
+        function showEmployeesByTitle() {
+            var selectedTitle = document.getElementById("titleSelect").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "employees.xml", true);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var xmlDoc = xhr.responseXML;
+                    var employees = xmlDoc.getElementsByTagName("employee");
+                    var tableBody = document.getElementById("employeeTableBody");
+                    tableBody.innerHTML = ""; // Xóa dữ liệu cũ
+
+                    for (var i = 0; i < employees.length; i++) {
+                        var emp = employees[i];
+                        var title = emp.getAttribute("title");
+
+                        if (title === selectedTitle) {
+                            var id = emp.getAttribute("id");
+                            var name = emp.getElementsByTagName("name")[0].textContent;
+                            var phone = emp.getElementsByTagName("phone")[0].textContent;
+
+                            var tr = document.createElement("tr");
+
+                            var tdId = document.createElement("td");
+                            tdId.innerText = id;
+                            tr.appendChild(tdId);
+
+                            var tdName = document.createElement("td");
+                            tdName.innerText = name;
+                            tr.appendChild(tdName);
+
+                            var tdPhone = document.createElement("td");
+                            tdPhone.innerText = phone;
+                            tr.appendChild(tdPhone);
+
+                            tableBody.appendChild(tr);
+                        }
+                    }
+                }
+            };
+        }
+
+        // Gọi loadEmployees() khi trang tải xong
+        window.onload = loadEmployees;
+    </script>
+</head>
+<body>
+    <h3>Chọn Title: 
+        <select id="titleSelect" onchange="showEmployeesByTitle()">
+            <!-- Các title từ XML sẽ được nạp vào đây -->
+        </select>
+    </h3>
+
+    <table border="1">
+        <thead>
+            <tr style="background-color: blue; color: white;">
+                <th>Mã Employee</th>
+                <th>Tên Employee</th>
+                <th>Phone Employee</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+            <!-- Dữ liệu Employee sẽ hiển thị ở đây -->
+        </tbody>
+    </table>
+</body>
+</html>
